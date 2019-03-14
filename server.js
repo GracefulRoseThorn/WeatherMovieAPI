@@ -22,7 +22,7 @@ app.locals._ = _;
 
 app.get('/', function (req, res) {
 
-    request.get('http://api.openweathermap.org/data/2.5/forecast?q=Lebanon,or&units=metric&appid=8ba9df0e58c48ceb3271a1edd37e94a0', (resp) => {
+    request.get('api.openweathermap.org/data/2.5/forecast?zip=97355,us&units=metric&appid=8ba9df0e58c48ceb3271a1edd37e94a0', (resp) => {
         let data = '';
 
         // A chunk of data has been recieved.
