@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const request = require('http');
 const moment = require('moment');
+const PORT = process.env.PORT || 3000;
 
 var _ = require('lodash');
 
@@ -75,6 +76,6 @@ app.get('/', function (req, res) {
     });
 });
 
-app.listen(4200, function () {
-    console.log('Example app listening on port 4200!');
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
 });
