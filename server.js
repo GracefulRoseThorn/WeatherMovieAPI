@@ -22,7 +22,7 @@ app.locals._ = _;
 
 app.get('/', function (req, res) {
 
-    request.get('http://api.openweathermap.org/data/2.5/forecast?q=Lebanon,usa&units=imperial&appid=8ba9df0e58c48ceb3271a1edd37e94a0', (resp) => {
+    request.get('http://api.openweathermap.org/data/2.5/forecast?q=Lebanon,usa&units=imperial&appid=58eb4c7e5dca66f6c0c42cb1a7d56640', (resp) => {
         let data = '';
 
         // A chunk of data has been recieved.
