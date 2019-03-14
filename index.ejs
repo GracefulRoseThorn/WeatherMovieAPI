@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Weather App </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
+    <style>
+        body {
+            background: #ededed;
+			height:100%;
+			width:100%;
+        }
+
+        .today {
+            font-size: 4rem;
+            font-weight: 100;
+            color: #4286f4;
+        }
+
+        .night {
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-lg-4 pull-xs-none m-x-auto m-t-5">
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h2 class="card-title m-b-2">London</h2>
+                            <% _.forEach(today, function(weather, day){; %>
+                                <p>
+                                    <%= weather.type %>
+                                        <small>
+                                            <span class="grey-text">&middot; Wind
+                                                <%= weather.wind %> mph &middot; Humidity:
+                                                <%= weather.humidity %>%
+                                            </span>
+                                        </small>
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-4 today text-xs-center amber-text">
+                                        <img src="http://openweathermap.org/img/w/<%=weather.icon%>.png">
+                                    </div>
+                                    <div class="col-xs-8 today text-xs-center">
+                                        <%= weather.temp %>&deg;
+                                    </div>
+                                </div>
+                                <% }); %>
+
+                                    <!-- Day names -->
+                                    <div class="row">
+                                        <% _.forEach(data, function(weather, day){; %>
+                                            <div class="col-xs-2"><%= _.capitalize(day.substring(0,3)) %></div>
+                                        <% }); %>
+                                    </div>
+
+                                    <!--Next days-->
+                                    <div class="row m-t-3">
+                                        <% _.forEach(data, function(weather, day){; %>
+                                            <div class="col-xs-2">
+                                                <p><%= weather.temp %>&deg;</p>
+                                                <p class="text-xs-center night grey-text">
+                                                    <img src="http://openweathermap.org/img/w/<%=weather.icon%>.png">
+                                                </p>
+                                            </div>
+                                        <% }); %>
+                                    </div>
+
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+            </div>
+        </div>
+    </main>
+     <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Welcome! to weather forecast app</h1>
+
+                <% _.forEach(data, function(weather, day){; %>
+                    <li>
+                        <%= day %> -
+                        <%= weather.temp %> C -
+                        <%= weather.icon %>
+                    </li>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
